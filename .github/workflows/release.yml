@@ -9,7 +9,6 @@ on:
 
 jobs:
   release:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -21,7 +20,7 @@ jobs:
       - name: Setup Node
         uses: actions/setup-node@master
         with:
-          node-version: '10.x'
+          node-version: '12.x'
 
       - name: Install dependencies
         run: yarn
