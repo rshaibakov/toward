@@ -19,11 +19,14 @@ if (process.env.NODE_ENV === 'production') {
 
 const db = firebase.firestore()
 
-/* if (location.hostname === 'localhost') {
+/**
+ * Настройка для эмулятора, когда запускаем на локальной машине
+ */
+if (location.hostname === 'localhost') {
   db.settings({
     host: `localhost:${process.env.VUE_APP_FIREBASE_LOCALHOST_PORT}`,
     ssl: false
   })
-} */
+}
 
 export default db
