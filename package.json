@@ -7,7 +7,9 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "test:e2e": "vue-cli-service test:e2e",
-    "lint": "vue-cli-service lint",
+    "lint": "yarn lint:script && yarn lint:style",
+    "lint:script": "vue-cli-service lint",
+    "lint:style": "stylelint 'src/**/*.{vue,html,css}' --fix",
     "commit": "npx git-cz"
   },
   "dependencies": {
@@ -51,8 +53,11 @@
     "eslint-plugin-vue": "^6.2.2",
     "husky": "^4.2.5",
     "lint-staged": "^9.5.0",
-    "node-sass": "^4.12.0",
-    "sass-loader": "^8.0.2",
+    "postcss-preset-env": "^6.7.0",
+    "stylelint": "^13.3.3",
+    "stylelint-config-rational-order": "^0.1.2",
+    "stylelint-config-standard": "^20.0.0",
+    "stylelint-order": "^4.0.0",
     "typescript": "~3.8.3",
     "vue-template-compiler": "^2.6.11"
   },
@@ -74,7 +79,11 @@
   },
   "lint-staged": {
     "*.{js,jsx,vue,ts,tsx}": [
-      "vue-cli-service lint",
+      "yarn lint:script",
+      "git add"
+    ],
+    "*.{vue,html,css}": [
+      "yarn lint:style",
       "git add"
     ]
   },
