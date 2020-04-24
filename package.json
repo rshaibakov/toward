@@ -11,7 +11,8 @@
     "lint": "yarn lint:script && yarn lint:style",
     "lint:script": "vue-cli-service lint",
     "lint:style": "stylelint 'src/**/*.{vue,html,css}' --fix",
-    "commit": "npx git-cz"
+    "commit": "npx git-cz",
+    "deploy": "yarn build && firebase deploy"
   },
   "dependencies": {
     "core-js": "^3.6.4",
